@@ -64,12 +64,15 @@ class App extends React.Component {
         let date = new Date();
 
         this.setState({
-            items: state.items.concat([{ 
-                id: date.getTime(),
-                checked: false,
-                text: state.newTodo,
-                date: date
-            }]),
+            items: [
+                ...state.items,
+                { 
+                    id: date.getTime(),
+                    checked: false,
+                    text: state.newTodo,
+                    date: date
+                } 
+            ],
             newTodo: ''
         });
     }
