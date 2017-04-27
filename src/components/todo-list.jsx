@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 
 import Todo from './todo';
 
+/**
+ * TodoList presentational component.
+ * Renders todo items.
+ */
+
 const TodoList = ({ items, onCheck, onRemove }) => {
 
     let todos;
@@ -14,8 +19,8 @@ const TodoList = ({ items, onCheck, onRemove }) => {
                 checked={i.checked} 
                 text={i.text} 
                 date={i.date} 
-                onCheck={e => onCheck(i.id, e.target.checked)}
-                onRemove={e => onRemove(i.id)}
+                onCheck={checked => onCheck(i.id, checked)}
+                onRemove={() => onRemove(i.id)}
             />
         });
     } else {
@@ -24,12 +29,6 @@ const TodoList = ({ items, onCheck, onRemove }) => {
 
     return <div className="todo-list">{todos}</div>;
 }
-
-TodoList.defaultProps = {
-    items: [],
-    onCheck: (id, checked) => {},
-    onRemove: id => {}
-};
 
 TodoList.propTypes = {
     items: PropTypes.array,

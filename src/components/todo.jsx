@@ -1,25 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * Todo presentational component.
+ * Renders checkbox, label and remove button.
+ */
+
 const Todo = ({ checked, text, date, onCheck, onRemove }) => {
     return (
         <div className={'todo' + (checked? ' checked': '')} title={date}>
             <label>
-                <input type="checkbox" checked={checked} onChange={onCheck}/>
+                <input type="checkbox" checked={checked} onChange={e => onCheck(e.target.checked)}/>
                 {text}
             </label>
-            <a onClick={onRemove}>[del]</a>
+            <a onClick={e => onRemove()}>[del]</a>
         </div>
     );
 }
-
-Todo.defaultProps = {
-    checked: false,
-    text: '',
-    date: '',
-    onCheck: e => {},
-    onRemove: e => {}
-};
 
 Todo.propTypes = {
     checked: PropTypes.bool,

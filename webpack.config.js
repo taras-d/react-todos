@@ -1,5 +1,5 @@
 module.exports = {
-    entry: './src/app.jsx',
+    entry: './src/index.jsx',
     output: {
         filename: 'bundle.js'
     },
@@ -10,7 +10,7 @@ module.exports = {
     module: {
         rules: [
             { 
-                test: /\.jsx$/, 
+                test: /\.jsx?$/, 
                 use: {
                     loader: 'babel-loader',
                     options: { presets: ['es2015', 'react'] }
