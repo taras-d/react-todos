@@ -12,7 +12,13 @@ const getSavedTodos = () => {
 }
 
 // Create store
-const store = createStore(reducer, { todos: getSavedTodos() });
+const store = createStore(
+    reducer, 
+    // Initial state
+    { todos: getSavedTodos() },
+    // Enable DevTools Extenson (https://github.com/zalmoxisus/redux-devtools-extension)
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 // Save todos on window close
 window.addEventListener('beforeunload', () => 
