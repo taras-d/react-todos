@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import Todo from './todo';
 
 /**
- * TodoList presentational component.
- * Renders todo items.
+ * TodoList component renders todo items
  */
 
 const TodoList = ({ items, onCheck, onRemove }) => {

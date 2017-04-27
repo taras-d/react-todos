@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * Todo presentational component.
- * Renders checkbox, label and remove button.
+ * Todo component renders checkbox, label and remove button
  */
 
 const Todo = ({ checked, text, date, onCheck, onRemove }) => {

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 
-import { TODO_ADD, TODO_CHECK, TODO_REMOVE, TODO_TEXT_CHANGE } from '../actions';
+import { TODO_ADD, TODO_CHECK, TODO_REMOVE } from '../actions';
 
-const todos = (state = [], action) => {
+const reducer = (state = [], action) => {
 
     switch (action.type) {
 
@@ -31,18 +31,4 @@ const todos = (state = [], action) => {
 
 }
 
-const newTodo = (state = '', action) => {
-    
-    switch (action.type) {
-
-        case TODO_TEXT_CHANGE:
-            return action.payload;
-
-        default:
-            return state;
-
-    }
-
-}
-
-export const reducer = combineReducers({ todos, newTodo });
+export { reducer };

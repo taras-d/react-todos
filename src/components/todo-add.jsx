@@ -2,24 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * TodoAdd presentational component.
- * Renders input and add button.
+ * TodoAdd component renders input and add button
  */
 
-const TodoAdd = ({ text, onChange, onAdd }) => {
-    return (
-        <div className="todo-add">
-            <input type="text" value={text} placeholder="..."
-                onChange={e => onChange(e.target.value)} 
-                onKeyUp={e => e.keyCode === 13 && text && onAdd(text)}/>
-            <a onClick={e => text && onAdd(text)}>[add]</a>
-        </div>
-    );
+class TodoAdd extends React.Component {
+
+    render() {
+        return (
+            <div className="todo-add">
+                <form onSubmit={e => {e.preventDefault(); this.submit()}}>
+                    <input type="text" placeholder="..." ref={i => this.input = i}/>
+                    <a onClick={() => this.submit()}>[add]</a>
+                </form>
+            </div>
+        );
+    }
+
+    submit() {
+        let input = this.input;
+        if (input && input.value) {
+            this.props.onAdd(input.value);
+            input.value = '';
+        }
+    }
+
 }
 
 TodoAdd.propTypes = {
-    text: PropTypes.string,
-    onChange: PropTypes.func,
     onAdd: PropTypes.func
 };
 
