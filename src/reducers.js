@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { TODO_ADD, TODO_CHECK, TODO_REMOVE } from '../actions';
+import { TODO_ADD, TODO_CHECK, TODO_REMOVE } from './actions';
 
 const reducer = (state = [], action) => {
 
@@ -11,7 +11,7 @@ const reducer = (state = [], action) => {
         }
 
         case TODO_CHECK: {
-            let {id, checked} = action.payload;
+            let { id, checked } = action.payload;
             return state.map(item => {
                 if (item.id === id) {
                     return Object.assign({}, item, { checked });

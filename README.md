@@ -1,14 +1,14 @@
 # react-todos
-This application is example how to use Redux with React to manage application state
+This application is simple example how to use React with Redux to manage application state
 
 ### App structure
 ```
 src
-|-- actions      # action constants and action creators
 |-- components   # presentational components
 |-- containers   # container components
-|-- reducers     # reducers
+|-- actions.jx   # action types and action creators
 |-- index.jsx    # app start logic
+|-- reducers.js  # reducers
 ```
 
 ### Installation notes

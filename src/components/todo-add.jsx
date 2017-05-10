@@ -10,22 +10,21 @@ class TodoAdd extends React.Component {
     render() {
         return (
             <div className="todo-add">
-                <form onSubmit={e => {e.preventDefault(); this.submit()}}>
+                <form onSubmit={e => this.submit()}>
                     <input type="text" placeholder="..." ref={i => this.input = i}/>
-                    <a onClick={() => this.submit()}>[add]</a>
+                    <a onClick={e => this.submit()}>[add]</a>
                 </form>
             </div>
         );
     }
 
     submit() {
-        let input = this.input;
-        if (input && input.value) {
-            this.props.onAdd(input.value);
-            input.value = '';
+        let value = this.input.value;
+        if (value && value.trim()) {
+            this.props.onAdd(value);
+            this.input.value = '';
         }
     }
-
 }
 
 TodoAdd.propTypes = {
