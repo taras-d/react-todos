@@ -10,6 +10,7 @@ src
 |-- index.jsx    # app start logic
 |-- reducers.js  # reducers
 ```
+*Note: this is simplified structure and therefore not suitable for big projects*
 
 ### Installation notes
 ```
